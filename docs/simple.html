@@ -43,8 +43,10 @@
         }
     </style>
 </head>
-
 <body>
+
+
+
     <div class="page">
       <div class="time_container">
           <div class="time" id="time">11:27</div>
@@ -56,23 +58,22 @@
       </div>
     </div>
 
+<script>
 
-    <script>
-      function update() {
-        var date = new Date()
-        var m = today.getMinutes();
-        var timeString =  date.getHours() + ':' + checkTime(m)
-        var dateString = (date.getMonth() + 1) + 'M' + date.getDate() + 'D'
-        var weekList = ['Sunday', 'Monday', 'Tuesday', 'Wedsedn', 'Thursday', 'Friday', 'Saturday']
-        var weekString = 'Day' + weekList[date.getDay()]
+var date = new Date()
+// request a weekday along with a long date
+var dateOpt = { year: 'numeric', month: 'short', day: 'numeric', timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone};
 
-        document.getElementById("time").innerHTML = timeString
-        document.getElementById("date").innerHTML = dateString
-        document.getElementById("week").innerHTML = weekString
-      }
+var weekdayOpt = { weekday: 'short', timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone};
 
-      update()
-      setInterval("update()", 60 * 1000)
-    </script>
+var timeString = date.getHours() + ':' + ('0' + date.getMinutes()).slice(-2)
+var dataString = date.toLocaleDateString('en-US', dateOpt)
+var weekString = date.toLocaleDateString('en-US', weekdayOpt)
+
+document.getElementById("time").innerHTML = timeString
+document.write(document.getElementById("date").innerHTML = dataString)
+document.write(document.getElementById("week").innerHTML = weekString)
+</script>
+
 </body>
-</html>
+</html> </html>
