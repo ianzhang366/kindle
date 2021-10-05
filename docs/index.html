@@ -71,19 +71,16 @@
           function update() {
           	// it seems kindle support the same version of js as safari... so be mindful when using JS function
     		var date = new Date()
-            // request a weekday along with a long date
 
-            var tz = 'America/Toronto' // Intl.DateTimeFormat().resolvedOptions().timeZone
-            var dateOpt = { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'America/Toronto'};
-
-            var weekdayOpt = { weekday: 'short', timeZone: 'America/Toronto'};
 
             var utc5DiffMinutes = date.getTimezoneOffset() - 240
-        	date.setMinutes(date.getMinutes() + utc5DiffMinutes)
+            date.setMinutes(date.getMinutes() + utc5DiffMinutes)
 
             var timeString = date.getHours() + ':' + ('0' + date.getMinutes()).slice(-2)
-            var dataString = date.toLocaleDateString('en-US', dateOpt)
-            var weekString = date.toLocaleDateString('en-US', weekdayOpt)
+            var dateString = (date.getMonth() + 1) + 'm/' + date.getDate() + '/day'
+            var weekList = ['Sun', 'Mon', 'Tus', 'Wed', 'Thu', 'Fri', 'Sat']
+            var weekString = weekList[date.getDay()]
+
 
             document.getElementById("time").innerHTML = timeString
             document.getElementById("date").innerHTML = dataString
