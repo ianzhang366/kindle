@@ -77,13 +77,14 @@
             var dateOpt = { year: 'numeric', month: 'short', day: 'numeric'};
 
             var weekdayOpt = { weekday: 'short' };
+            var hourOpt = { hour12: false };
 
             var utc8DiffMinutes = date.getTimezoneOffset() + 480
         	date.setMinutes(date.getMinutes() + utc8DiffMinutes)
 
-            var timeString = date.getHours() + ':' + ('0' + date.getMinutes()).slice(-2)
-            var dataString = date.toLocaleDateString('en-US', dateOpt)
-            var weekString = date.toLocaleDateString('en-US', weekdayOpt)
+            var timeString = date.toLocaleString('en-US', hourOpt)
+            var dataString = date.toLocaleString('en-US', dateOpt)
+            var weekString = date.toLocaleString('en-US', weekdayOpt)
 
             document.getElementById("time").innerHTML = timeString
             document.getElementById("date").innerHTML = dataString
