@@ -78,7 +78,7 @@
 
             var weekdayOpt = { weekday: 'short', timeZone: 'America/Toronto'};
 
-            var utc5DiffMinutes = date.getTimezoneOffset() + 300
+            var utc5DiffMinutes = date.getTimezoneOffset() - 240
         	date.setMinutes(date.getMinutes() + utc5DiffMinutes)
 
             var timeString = date.getHours() + ':' + ('0' + date.getMinutes()).slice(-2)
