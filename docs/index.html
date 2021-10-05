@@ -69,6 +69,7 @@
 
         <script>
           function update() {
+          	// it seems kindle support the same version of js as safari... so be mindful when using JS function
     		var date = new Date()
             // request a weekday along with a long date
 
@@ -77,8 +78,8 @@
 
             var weekdayOpt = { weekday: 'short' };
 
-            //var utc8DiffMinutes = date.getTimezoneOffset() + 480
-        	//date.setMinutes(date.getMinutes() + utc8DiffMinutes)
+            var utc8DiffMinutes = date.getTimezoneOffset() + 480
+        	date.setMinutes(date.getMinutes() + utc8DiffMinutes)
 
             var timeString = date.getHours() + ':' + ('0' + date.getMinutes()).slice(-2)
             var dataString = date.toLocaleDateString('en-US', dateOpt)
