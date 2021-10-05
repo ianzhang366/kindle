@@ -69,9 +69,9 @@
         var dataString = date.toLocaleDateString('en-US', dateOpt)
         var weekString = date.toLocaleDateString('en-US', weekdayOpt)
 
-        document.write(document.getElementById("time").innerHTML = timeString)
-        document.write(document.getElementById("date").innerHTML = dataString)
-        document.write(document.getElementById("week").innerHTML = weekString)
+        document.getElementById("time").innerHTML = timeString
+        document.getElementById("date").innerHTML = dataString
+        document.getElementById("week").innerHTML = weekString
       }
 
       update()
