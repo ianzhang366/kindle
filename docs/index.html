@@ -73,9 +73,12 @@
             // request a weekday along with a long date
 
             var tz = 'America/Toronto' // Intl.DateTimeFormat().resolvedOptions().timeZone
-            var dateOpt = { year: 'numeric', month: 'short', day: 'numeric', timeZone: tz};
+            var dateOpt = { year: 'numeric', month: 'short', day: 'numeric'};
 
-            var weekdayOpt = { weekday: 'short', timeZone: tz};
+            var weekdayOpt = { weekday: 'short' };
+
+            //var utc8DiffMinutes = date.getTimezoneOffset() + 480
+        	//date.setMinutes(date.getMinutes() + utc8DiffMinutes)
 
             var timeString = date.getHours() + ':' + ('0' + date.getMinutes()).slice(-2)
             var dataString = date.toLocaleDateString('en-US', dateOpt)
