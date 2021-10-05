@@ -60,6 +60,7 @@
     <script>
       function update() {
         var date = new Date()
+        var m = today.getMinutes();
         var timeString =  date.getHours() + ':' + checkTime(m)
         var dateString = (date.getMonth() + 1) + 'M' + date.getDate() + 'D'
         var weekList = ['Sunday', 'Monday', 'Tuesday', 'Wedsedn', 'Thursday', 'Friday', 'Saturday']
