@@ -77,7 +77,11 @@
             date.setMinutes(date.getMinutes() + utc5DiffMinutes)
 
             var timeString = date.getHours() + ':' + ('0' + date.getMinutes()).slice(-2)
-            var dateString = (date.getMonth() + 1) + 'm/' + date.getDate() + '/day'
+
+            var monthList = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            var dateString = monthList[date.getMonth()] + ' ' + date.getDate()
+
+
             var weekList = ['Sun', 'Mon', 'Tus', 'Wed', 'Thu', 'Fri', 'Sat']
             var weekString = weekList[date.getDay()]
 
