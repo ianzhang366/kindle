@@ -77,10 +77,11 @@
             var dateOpt = { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'America/Toronto'};
 
             var weekdayOpt = { weekday: 'short', timeZone: 'America/Toronto'};
-            var hourOpt = { hour12: false, timeZone: 'America/Toronto' };
 
+            var utc5DiffMinutes = date.getTimezoneOffset() + 300
+        	date.setMinutes(date.getMinutes() + utc5DiffMinutes)
 
-            var timeString = date.toLocaleDateString('en-US', hourOpt)
+            var timeString = date.getHours() + ':' + ('0' + date.getMinutes()).slice(-2)
             var dataString = date.toLocaleDateString('en-US', dateOpt)
             var weekString = date.toLocaleDateString('en-US', weekdayOpt)
 
